@@ -1,0 +1,10 @@
+{
+  "extends": "airbnb",
+  "rules": {
+    "react/prefer-stateless-function": "off",
+    // React Native has JSX in JS files
+    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
+    // React Native includes images via require('../images/example.png')
+    "global-require": "off"
+  }
+}
