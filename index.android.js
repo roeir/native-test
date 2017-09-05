@@ -1,49 +1,10 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
+import React from 'react';
+import { Text, AppRegistry } from 'react-native';
 
-import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import Header from './src/components/header';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+const App = () => (
+  <Header />
+);
 
-export default class test extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Uhh! Done
-        </Text>
-        <Text style={styles.instructions}>
-          Hot module enabled
-        </Text>
-      </View>
-    );
-  }
-}
-
-AppRegistry.registerComponent('test', () => test);
+AppRegistry.registerComponent('test', () => App);
