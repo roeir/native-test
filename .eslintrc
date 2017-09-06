@@ -1,5 +1,6 @@
 {
   "extends": "airbnb",
+  "parser": "babel-eslint",
   "rules": {
     "react/prefer-stateless-function": "off",
     // React Native has JSX in JS files
