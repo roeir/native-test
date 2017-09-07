@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { ScrollView, Text } from 'react-native';
 import axios from 'axios';
 
 import Album from './Album';
@@ -27,13 +27,13 @@ class Albums extends Component {
   render() {
     const { albums } = this.state;
     return (
-      <View>
+      <ScrollView contentContainerStyle={{ justifyContent: 'space-between', paddingBottom: 10 }}>
         {
           albums.length ?
             this.renderAlbums() :
             <Text>There are no albums availabe</Text>
         }
-      </View>
+      </ScrollView>
     );
   }
 }
