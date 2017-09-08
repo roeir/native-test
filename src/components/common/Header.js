@@ -38,4 +38,4 @@ const Header = ({ headerText }) => {
   );
 };
 
-export default Header;
+export { Header };

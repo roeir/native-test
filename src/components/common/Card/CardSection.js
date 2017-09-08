@@ -7,7 +7,6 @@ const styles = {
     borderColor: '#ddd',
     backgroundColor: '#fff',
     padding: 5,
-    display: 'flex',
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
@@ -23,4 +22,4 @@ const CardSection = (props) => {
   );
 };
 
-export default CardSection;
+export { CardSection };

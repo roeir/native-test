@@ -35,4 +35,4 @@ OrderButton.propTypes = {
   onPress: PropTypes.func.isRequired,
 };
 
-export default OrderButton;
+export { OrderButton };

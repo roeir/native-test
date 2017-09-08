@@ -8,9 +8,9 @@ import {
   Linking,
 } from 'react-native';
 
-import Card from '../Card/Card';
-import CardSection from '../Card/CardSection';
-import OrderButton from '../Button/OrderButton';
+import Card from '../common/Card/Card';
+import CardSection from '../common/Card/CardSection';
+import OrderButton from '../common/Button/OrderButton';
 
 const styles = {
   header: {
