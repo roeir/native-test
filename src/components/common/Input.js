@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const Input = ({ label, onTextChange, value, secure, autocorrect }) => {
+const Input = ({ label, onTextChange, onChange, onEndEditing, value, secure, autocorrect }) => {
   const { inputStyles, labelStyles, inputContainer } = styles;
   return (
     <View style={inputContainer}>
@@ -29,6 +29,8 @@ const Input = ({ label, onTextChange, value, secure, autocorrect }) => {
         style={inputStyles}
         value={value}
         onChangeText={onTextChange}
+        onChange={onChange}
+        onEndEditing={onEndEditing}
       />
     </View>
   );
