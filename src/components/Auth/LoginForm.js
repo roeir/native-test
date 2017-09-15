@@ -3,9 +3,11 @@ import {
   StyleSheet,
   Text,
   View,
+  Keyboard,
 } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { NavigationActions } from 'react-navigation';
 
 import { inputChanged, loginUser } from '../../actions/AuthActions';
 
@@ -39,15 +41,44 @@ class LoginForm extends Component {
       message: PropTypes.string.isRequired,
     }),
     loading: PropTypes.bool,
+    user: PropTypes.object,
     formValues: PropTypes.shape({
       'email': PropTypes.string,
       'password': PropTypes.string,
     }).isRequired,
   };
 
+  // componentDidMount() {
+  //   if (this.props.user) {
+  //     const actionToDispatch = NavigationActions.reset({
+  //       index: 0,
+  //       actions: [NavigationActions.navigate({ routeName: 'UserStack'})]
+  //     });
+  //     this.props.navigation.dispatch(actionToDispatch);
+  //   }
+  // }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.user) {
+      // this.props.navigation.navigate('UserStack');
+      const actionToDispatch = NavigationActions.reset({
+        index: 0,
+        actions: [NavigationActions.navigate({ routeName: 'UserStack'})]
+      });
+      this.props.navigation.dispatch(actionToDispatch);
+      // this.props.navigation.dispatch({
+      //   type: 'REPLACE_CURRENT_SCREEN',
+      //   payload: {
+      //     key: 'UserStack',
+      //     routeName: 'UserStack',
+      //   },
+      // });
+      Keyboard.dismiss();
+    }
+  }
+
   handleInputChange = input =>
     text => {
-      // const text = event.nativeEvent.text;
       this.props.inputChanged(input, text);
     };
 
@@ -102,6 +133,7 @@ const mapStateToProps = state => ({
   formValues: state.auth,
   error: state.auth.error,
   loading: state.auth.loading,
+  user: state.auth.user,
 });
 
 export default connect(

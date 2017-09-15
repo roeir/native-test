@@ -2,14 +2,14 @@ import React, {Component} from 'react';
 import {
   StyleSheet,
   View,
-  Text,
 } from 'react-native';
 import {Provider} from 'react-redux';
 import firebase from 'firebase';
 
 import configureStore from './configureStore';
+import { setCurrentUser, logout } from './actions/AuthActions';
 
-import LoginForm from './components/Auth/LoginForm'
+import { AppStack } from './AppRouting';
 
 const store = configureStore();
 
@@ -29,16 +29,24 @@ class App extends Component {
       storageBucket: "manager-a6f67.appspot.com",
       messagingSenderId: "887377715458",
     };
+
     !firebase.apps.length
       ? firebase.initializeApp(config)
       : firebase.app();
-  }
 
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        store.dispatch(setCurrentUser(user));
+      } else {
+        store.dispatch(logout());
+      }
+    });
+  }
   render() {
     return (
       <Provider store={store}>
         <View style={styles.container}>
-          <LoginForm/>
+          <AppStack />
         </View>
       </Provider>
     );
