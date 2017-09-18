@@ -3,6 +3,7 @@ import {
   StyleSheet,
   Text,
   View,
+  TouchableOpacity
 } from 'react-native';
 
 import {
@@ -22,26 +23,32 @@ const styles = StyleSheet.create({
   },
 });
 
-const EmployeeListItem = ({ employee }) => {
+const EmployeeListItem = ({ employee, onLongPress }) => {
   const { name, phone, shift } = employee;
   return (
-    <Card>
-      <CardSection>
-        <Text style={styles.titleStyles}>
-          { name }
-        </Text>
-      </CardSection>
-      <CardSection>
-        <Text style={styles.infoStyles}>
-          Tel.: { phone }
-        </Text>
-      </CardSection>
-      <CardSection>
-        <Text style={styles.infoStyles}>
-          Shift: { shift }
-        </Text>
-      </CardSection>
-    </Card>
+    <TouchableOpacity
+      onLongPress={ onLongPress }
+    >
+      <View>
+        <Card>
+          <CardSection>
+            <Text style={styles.titleStyles}>
+              { name }
+            </Text>
+          </CardSection>
+          <CardSection>
+            <Text style={styles.infoStyles}>
+              Tel.: { phone }
+            </Text>
+          </CardSection>
+          <CardSection>
+            <Text style={styles.infoStyles}>
+              Shift: { shift }
+            </Text>
+          </CardSection>
+        </Card>
+      </View>
+    </TouchableOpacity>
   );
 };
 

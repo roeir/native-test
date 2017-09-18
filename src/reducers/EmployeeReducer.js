@@ -1,4 +1,8 @@
-import { EMPLOYEE_UPDATE, EMPLOYEE_CREATE } from '../constants';
+import {
+  EMPLOYEE_UPDATE,
+  EMPLOYEE_CREATE,
+  SET_EDITED_EMPLOYEE,
+} from '../constants';
 
 const initialState = {
   name: '',
@@ -12,6 +16,10 @@ export default (state = initialState, action) => {
       return {
         ...state,
         [action.payload.prop]: action.payload.value,
+      };
+    case SET_EDITED_EMPLOYEE:
+      return {
+        ...action.payload,
       };
     case EMPLOYEE_CREATE:
       return {

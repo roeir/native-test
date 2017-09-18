@@ -37,6 +37,9 @@ class EmployeeList extends Component {
     ),
   });
 
+  handleItemLongPress = employee =>
+    () => this.props.navigation.navigate('EmployeeEdit', { employee });
+
   componentDidMount() {
     this.props.employeesFetch();
   }
@@ -48,7 +51,10 @@ class EmployeeList extends Component {
       : <FlatList
         data={employeeList}
         keyExtractor={item => item.uid}
-        renderItem={({ item }) => <EmployeeListItem employee={item} />}
+        renderItem={({ item }) => <EmployeeListItem
+          onLongPress={this.handleItemLongPress(item) }
+          employee={item}
+        />}
       />
   };
 

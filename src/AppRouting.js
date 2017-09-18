@@ -3,6 +3,7 @@ import { StackNavigator } from 'react-navigation';
 import LoginForm from './components/Auth/LoginForm';
 import EmployeeList from './components/EmployeeList';
 import EmployeeCreate from './components/EmployeeCreate';
+import EmployeeEdit from './components/EmployeeEdit';
 
 export const UserStack = StackNavigator({
   EmployeeList: {
@@ -17,6 +18,12 @@ export const UserStack = StackNavigator({
       title: 'Create a new employee',
     },
   },
+  EmployeeEdit: {
+    screen: EmployeeEdit,
+    navigationOptions: {
+      title: 'Update an employee',
+    },
+  }
 }, {
   initialRouteName: 'EmployeeList',
 });
